@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funky-Ownerz</title>
+    <link rel="stylesheet" href="./ressources/css/style.css">
+<!--FONT-->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,200&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="hamburger-menu">
+                    <div class="line line-1"></div>
+                    <div class="line line-2"></div>
+                    <div class="line line-3"></div>
+                </div>
+                <ul class="nav-list">
+                    <li class="nav-item"></li>
+                    <a href="#" class="nav-link">Accueil</a>
+                    <li class="nav-item"></li>
+                    <a href="#" class="nav-link">Nos équipes</a>
+                    <li class="nav-item"></li>
+                    <a href="#" class="nav-link"> Les News</a>
+                </ul>
+            </nav>
+        </div>
+        
+        <div id="title">
+            <div id="title-main">
+                <h2>Funky-Ownerz</h2>
+                <h1>Devenez une légende</h1>
+            </div>
+            
+
+        </div>
+        <button id="btn-header" onmouseover="playSound()">Rejoingnez-nous</button>
+        <audio controls="controls" id="son" src="./ressources/images/sonbtn.mkv"></audio>
+    </header>
+    <div id="box">
+        <h1 style="text-align: center;">Testez vous !</h1>
+    <p style="font-style: italic; color: rgb(0, 0, 0);text-align: center;">Mettre le nom de point au classement ranked que vous avez. Ceci nous permettra de vous intégrer dans l'un de nos équipes.</p>
+
+    <form  style="margin-top:10px;text-align:center">
+        <label>Nombre de points de classement:</label><br><br>
+        <input type="text" placeholder="vos points" id="champion-box" >
+    </form>
+    <button onclick="eloImg()">click</button>
+
+    <form  style="margin-top:10px;text-align:center">
+        <label>votre Elo</label>
+        <div id="votreElo">
+            
+        </div>
+    </form>
+    </div>
+    
+    
+</body>
+<script src="./ressources/js/script.js"></script>
+</html>
