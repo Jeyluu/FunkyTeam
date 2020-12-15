@@ -8,6 +8,9 @@ a {
     font-family: 'Raleway', sans-serif;
 
 }
+h1 {
+    color: #fff;
+}
 
 h2{
     font-family: 'Big Shoulders Stencil Text', cursive;
@@ -26,6 +29,8 @@ header{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    border-bottom:15px ridge rgba(199, 178, 43, 0.836);
+    
 }
 /*-----------------------------------NAVBAR----------------------------------------*/
 .container
@@ -158,6 +163,10 @@ header{
     border-image: linear-gradient(to bottom,#08abac 0,#01698b 100%);
     border-image-slice: 1;
     transition-duration: 0.5s;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
     
 }
 
@@ -168,6 +177,8 @@ header{
 }
 #title-main h1 {
     color: rgb(255, 255, 255) ;
+    margin-bottom: 40px;
+    
 }
 
 #title-main h2 {
@@ -179,33 +190,89 @@ audio{
 }
 
 /*-----------------------------------TEST ELO----------------------------------------*/
-
-#box h1{
-    margin-bottom: 10px;
-}
-
-p{
-    margin-bottom: 50px;
-}
-
-
-label{
-    color: rgb(0, 0, 0);
-}
-
-#box{
-    background-color: rgba(0, 0, 0, 0.055);
+#box {
+    background-image: url(../images/backp1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    border-bottom:15px ridge rgba(199, 178, 43);
+}
+
+#form {
+    background: rgba(0, 0, 0, 0.555);
+    width: 500px;
+    display: flex;
+    align-self:center;
+    flex-direction: column;
+    margin: 20px 0;
+    padding: 20px;
+}
+#box h1{
     
+    margin: 10px 0;
+    text-shadow: 2px 2px #000;
+}
+
+p{
+    margin-bottom: 50px;
+    font-size: 15px;
+    color: #fff;
+    font-style: italic;
+    text-align: center;
+}
+
+#btn-form{
+    width: 200px;
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+
+/*-----------------------------------carroussel----------------------------------------*/
+.carrou-item {
+    display: flex;
+    justify-content: center;
     
 }
 
-button {
-    margin-top:10px;
-    margin-left: 45%;
-    width:200px;
+.carrou-img{
+    display: flex;
     
+}
+
+.carrou-img img {
+width: 100%;
+border: none;
+position: relative;
+filter: grayscale(45%);
+}
+
+.carrou-body{
+background: rgba(0, 0, 0, 0.712);
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-self: flex-end;
+width: 1000px;
+padding: 40px;
+margin-bottom: 20px;
+position: absolute;
+color: #fff;
+text-align: center;
+border-radius: 5%;
+
+}
+
+.carrou-title{
+    font-size: 80px;
+    color: #fff;
+}
+.carrou-description{
+    font-size: 20px;
+    color: #fff;
 }

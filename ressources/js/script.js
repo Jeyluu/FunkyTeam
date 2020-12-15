@@ -45,12 +45,48 @@ function eloImg(){
     }
     
 
+};
+
+
+//carroussel
+
+class carrousel {
+
+/*
+    @param {HTMLElement}element
+    @param {object} options
+    @param {object} options.slidesToScroll Nombre déléments à faire défiler
+    @param {object} options.slidesVisible Nombre déléments visibles dans le slide
+*/
+    constructor (element, options ={}){
+        this.element = element
+        this.options = object.assign({}, {
+            slidesToScroll:1,
+            slidesVisible:1
+        }, options)
+        let root = document.createElement('div')
+        root.setAttribute('class','carousel')
+        this.element.appendChild(root)
+    }
+
+    createDivWithClass (className) {
+
+    }
 }
 
 
 
 
+document.addEventListener('DOMContentLoaded', function() {
 
+
+
+new carrousel (document.querySelector('#carrousel'),{
+    slidesToScroll:5,
+    slidesVisible:5
+})
+
+})
     
 
 
