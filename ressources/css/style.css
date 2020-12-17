@@ -3,12 +3,14 @@
     padding: 0;
     
 }
-
+body {
+    background-color: #262626;
+}
 a {
     font-family: 'Raleway', sans-serif;
 
 }
-h1 {
+h1,h3{
     color: #fff;
 }
 
@@ -51,6 +53,7 @@ header{
     align-items: center;
     border-radius: 2% 0 0 2%;
     transition: right 0.8s cubic-bezier(1, 0, 0 ,1);
+    z-index: 1;
 }
 
 .change {
@@ -149,6 +152,16 @@ header{
     font-size: 50px;
 }
 
+.title-h1 {
+    margin-top: 100px;
+    text-align: center;
+}
+
+
+
+
+
+
 #btn-header {
     border: 3px solid rgba(192,252,253,.7);
     padding: 10px;
@@ -224,24 +237,21 @@ p{
     text-align: center;
 }
 
-#btn-form{
-    width: 200px;
-    margin: 40px 0;
-    display: flex;
-    justify-content: center;
-    align-self: center;
+#champion-box{
+    margin-bottom: 20px;
 }
 
 
 /*-----------------------------------carroussel----------------------------------------*/
 .carrou-item {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start
     
 }
 
 .carrou-img{
     display: flex;
+    
     
 }
 
@@ -255,17 +265,23 @@ filter: grayscale(45%);
 .carrou-body{
 background: rgba(0, 0, 0, 0.712);
 display: flex;
-justify-content: center;
 flex-direction: column;
-align-self: flex-end;
-width: 1000px;
+align-self: center;
+width: 20%;
 padding: 40px;
-margin-bottom: 20px;
 position: absolute;
 color: #fff;
 text-align: center;
 border-radius: 5%;
+transform: translateY(-30px);
+opacity: 0;
+}
 
+
+.carrou-body-visible{
+opacity: 1;
+transform: translateY(0);
+transition: 1.2s cubic-bezier(0.5, 0, 0,1);
 }
 
 .carrou-title{
@@ -273,6 +289,109 @@ border-radius: 5%;
     color: #fff;
 }
 .carrou-description{
+    margin-top: 20px;
     font-size: 20px;
     color: #fff;
+}
+
+.carrou-body a{
+
+    margin-top: 20px;
+    text-decoration: none;
+    color: rgb(218, 221, 28);
+    font-weight: 600;
+    font-size: 20px;
+    opacity: 0.5;
+}
+
+.carrou-body a:hover{
+
+    text-shadow:0px 0px 20px rgb(184, 181, 28);
+    transition: 0.3s;
+    opacity: 1;
+}
+
+.modal {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 40px;
+    height:100%;
+    animation: fadeIn .3s both;
+    
+}
+
+.modal-wrapper {
+
+    text-align: center;
+    overflow: auto;
+    width: 800px;
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 40px);
+    padding: 20px;
+    margin: 20px;
+    background-color: rgba(0, 0, 0, 0.596) ;
+    animation: slideFromLeft .8s both .1s;
+    
+    
+}
+
+
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to { opacity: 1;}
+}
+
+@keyframes slideFromLeft {
+    from {transform: translateX(-80px);}
+    to {transform: translateX(0px);}
+}
+
+/*-----------------------------------carroussel----------------------------------------*/
+
+#test {
+    display: flex;
+    background-color: #262626;
+    margin: 20px    
+}
+
+#block {
+    
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    
+}
+.title-test {
+    font-size:20px
+}
+
+
+#user {
+    margin: 20px 0;
+    font-size: 20px;
+}
+#result {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 30px;
+    background: rgba(255, 255, 255, 0.11);
+}
+
+
+/*-----------------------------------footer----------------------------------------*/
+footer {
+    background-color: #262626;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    border-top: rgb(43, 43, 43) 5px ridge;
 }

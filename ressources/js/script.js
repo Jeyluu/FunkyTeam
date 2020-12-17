@@ -12,7 +12,7 @@ navBar.classList.toggle('change');
 
 function playSound() {
 son.play()
-}
+};
 
 
 
@@ -45,50 +45,161 @@ function eloImg(){
     }
     
 
-};
+}
+
+//effet sur les carrou-body Intersection Observer MDN
+const ratio = .4
+const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: ratio
+}
+const handleIntersect = function (entries, observer) {
+    entries.forEach(function(entry){
+        if(entry.intersectionRatio > ratio) {
+
+            entry.target.classList.add('carrou-body-visible')
+            
+            observer.unobserve(entry.target)
+        } else {
+            
+        }
+        
+    })
+
+}
+
+const observer = new IntersectionObserver (handleIntersect, options)
+document.querySelectorAll('.carrou-body').forEach(function (carrou){
+    observer.observe(carrou)
+})
 
 
-//carroussel
+//fenetre modale
+let modal = null
+const focusableSelector = 'button, a, textarea'
+let focusables = []
 
-class carrousel {
+const openModal = function (e) {
+    e.preventDefault()
 
-/*
-    @param {HTMLElement}element
-    @param {object} options
-    @param {object} options.slidesToScroll Nombre déléments à faire défiler
-    @param {object} options.slidesVisible Nombre déléments visibles dans le slide
-*/
-    constructor (element, options ={}){
-        this.element = element
-        this.options = object.assign({}, {
-            slidesToScroll:1,
-            slidesVisible:1
-        }, options)
-        let root = document.createElement('div')
-        root.setAttribute('class','carousel')
-        this.element.appendChild(root)
+    modal = document.querySelector(e.target.getAttribute('href'))
+    focusables = Array.from(modal.querySelectorAll(focusableSelector))
+    modal.style.display = null
+    modal.removeAttribute('aria-hidden')
+    modal.setAttribute('aria-model','true')
+    modal.addEventListener('click', closeModal)
+    modal.querySelector('.btn').addEventListener('click', closeModal)
+    modal.querySelector('.js-modal-stop').addEventListener('click', stopPropagation)
+}
+
+const closeModal = function(e) {
+    if(modal === null)return
+    e.preventDefault()
+    window.setTimeout(function () {
+        modal.style.display = 'none'
+        modal = null
+    },100)
+    
+    modal.setAttribute('aria-hidden', 'true')
+    modal.removeAttribute('aria-model')
+    modal.removeEventListener('click', closeModal)
+    modal.querySelector('.btn').removeEventListener('click', closeModal)
+    modal.querySelector('.js-modal-stop').removeEventListener('click', stopPropagation)
+    
+}
+
+const stopPropagation = function(e) {
+    e.stopPropagation()
+}
+
+const focusInModal = function (e) {
+    e.preventDefault()
+    let index = focusables.findIndex(f => f === modal.querySelector(':focus'))
+    index++
+    if(index >= focusables.lenght) {
+        index = 0
     }
-
-    createDivWithClass (className) {
-
-    }
+    focusables[index].focus()
+    
 }
 
 
-
-
-document.addEventListener('DOMContentLoaded', function() {
-
-
-
-new carrousel (document.querySelector('#carrousel'),{
-    slidesToScroll:5,
-    slidesVisible:5
-})
-
-})
+document.querySelectorAll('.js-modal').forEach(a =>{
+    a.addEventListener('click', openModal)
     
+})
+
+window.addEventListener('keydown', function(e) {
+    if(e.key === 'Escape' || e.key ==='Esc') {
+        closeModal(e)
+    }
+    if(e.key === 'tab' &&  modal !== null) {
+        focusInModal(e)
+    }
+})
+
+var dmgChamp = [
+    {
+        name: 'ashe',
+        poste: 'Poste : Adc',
+        type: ' Type : Archer',
+        dégat: 'Dégat de base: ' + 500,
+
+    },
+    {
+        name: 'maitre yi',
+        poste: 'Poste : Jungle',
+        type: ' Type: Combattant',
+        dégat: 'Dégat de base: ' + 350,
+
+    },
+    {
+        name: 'fiora',
+        poste: 'Poste : Haut',
+        type: ' Type: Combattant',
+        dégat: 'Dégat de base: ' + 500,
+
+    },
+    {
+        name: 'katarina',
+        poste: 'Poste : Milieu',
+        type: ' Type: Assassin / Mage',
+        dégat: 'Dégat de base: ' + 500,
+
+    },
+    {
+        name: 'zed',
+        poste: 'Poste : Milieu',
+        type: ' Type: Assassin',
+        dégat: 'Dégat de base: ' + 800,
+
+    },
+];
 
 
+function info () {
 
 
+let champion = document.getElementById('user').value
+let result = document.getElementById('result')
+let skin = document.getElementById('skins')
+if( champion === 'ashe'){
+    result = document.getElementById('result').innerHTML = dmgChamp[0].poste + '<br>' + dmgChamp[0].type + '<br>' + dmgChamp[0].dégat
+    skin.innerHTML = '<img src=./ressources/images/skinashe.jpg>'
+} else if ( champion === 'maitre yi') {
+    result = document.getElementById('result').innerHTML = dmgChamp[1].poste + '<br>' + dmgChamp[1].type + '<br>' + dmgChamp[1].dégat
+    skin.innerHTML = '<img src=./ressources/images/zed.jpg>'
+} else if ( champion === 'fiora') {
+    result = document.getElementById('result').innerHTML = dmgChamp[2].poste + '<br>' + dmgChamp[2].type + '<br>' + dmgChamp[2].dégat
+    skin.innerHTML = '<img src=./ressources/images/Fiora.jpg>'
+}else if ( champion === 'katarina') {
+    result = document.getElementById('result').innerHTML = dmgChamp[3].poste + '<br>' + dmgChamp[3].type + '<br>' + dmgChamp[3].dégat
+    skin.innerHTML = '<img src=./ressources/images/Katarina.jpg>'
+} else if ( champion === 'zed') {
+    result = document.getElementById('result').innerHTML = dmgChamp[4].poste + '<br>' + dmgChamp[4].type + '<br>' + dmgChamp[4].dégat
+    skin.innerHTML = '<img src=./ressources/images/zed.jpg>'
+} 
+else {
+    result = document.getElementById('result').innerHTML = 'Pas encore dans la base de donnée'
+}}
