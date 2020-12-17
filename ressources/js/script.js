@@ -189,7 +189,7 @@ if( champion === 'ashe'){
     skin.innerHTML = '<img src=./ressources/images/skinashe.jpg>'
 } else if ( champion === 'maitre yi') {
     result = document.getElementById('result').innerHTML = dmgChamp[1].poste + '<br>' + dmgChamp[1].type + '<br>' + dmgChamp[1].dégat
-    skin.innerHTML = '<img src=./ressources/images/zed.jpg>'
+    skin.innerHTML = '<img src=./ressources/images/yi1.jpg>'
 } else if ( champion === 'fiora') {
     result = document.getElementById('result').innerHTML = dmgChamp[2].poste + '<br>' + dmgChamp[2].type + '<br>' + dmgChamp[2].dégat
     skin.innerHTML = '<img src=./ressources/images/Fiora.jpg>'
