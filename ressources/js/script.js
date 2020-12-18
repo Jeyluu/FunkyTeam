@@ -13,8 +13,37 @@ navBar.classList.toggle('change');
 function playSound() {
 son.play()
 };
+//SLider
 
+const imageList = document.getElementsByClassName('image')
 
+let slideIndex = 1;
+slider(slideIndex)
+//bouton
+function prevSlide(){
+slider(slideIndex -=1)
+}
+
+function nextSlide() {
+    slider(slideIndex +=1)
+}
+
+function slider (sliderActuel) {
+
+    if(sliderActuel > imageList.length) {   
+        slideIndex = 1
+    }
+    if(sliderActuel < 1 ) {   
+        sliderActuel = imageList.length
+    }
+
+// passer les élement en block.
+for ( let slide of imageList){
+    slide.style.display = 'none'
+}
+imageList[slideIndex - 1].style.display ='block'
+
+}
 
 
 //application

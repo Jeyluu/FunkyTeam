@@ -10,7 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@700&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;1,200&display=swap" rel="stylesheet">
-
+<!--ICON-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 </head>
 <body>
     <header>
@@ -44,6 +45,37 @@
         <button id="btn-header" onmouseover="playSound()">Rejoignez-nous</button>
         <audio controls="controls" id="son" src="./ressources/images/sonbtn.mkv"></audio>
     </header>
+    <div class="carrousel">
+        <!--Images-->
+        <div class="image">
+            <img src="./ressources/images/league-of-legends.jpg" alt="lol">
+        </div>
+        <div class="image">
+            <img src="./ressources/images/tft.jpg" alt="tft">
+            <div class="slide-img">
+                <p class="game"></p>
+            </div>
+        </div>
+        
+        <div class="image">
+            <img src="./ressources/images/wildrift.jpg" alt="wr" >
+            <div class="slide-img">
+                <p class="game"></p>
+            </div>
+        </div>
+        
+        <div class="image">
+            <img src="./ressources/images/legends-of-runeterra.jpg" alt="rt" >
+            <div class="slide-img">
+                <p class="game"></p>
+            </div>
+        </div>
+        
+        <!--Boutons-->
+        <a id="prev" onclick="prevSlide()"><i class="fas fa-angle-double-left"></i></a>
+        <a id="nxt" onclick="nextSlide()"><i class="fas fa-angle-double-right"></i></a>
+        
+    ​</div>
 
 
     <div id="box">
